@@ -1,9 +1,9 @@
 package gui;
 
 import java.awt.Image;
+import java.awt.event.KeyEvent;
 import java.io.File;
 import javax.swing.DefaultListModel;
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
 /**
@@ -13,27 +13,36 @@ import javax.swing.ImageIcon;
 public class MainFrame extends javax.swing.JFrame {
     
     Image icon = new ImageIcon(System.getProperty("user.dir")+ "/src/main/java/assets/search.png").getImage();
+    
+    private DefaultListModel availableSongsListModel;
+    private DefaultListModel addedSongsListModel;
+
    
     /**
      * Creates new form MainFrame
      */
     public MainFrame() {
         initComponents();
+        this.setDefaultModelToListsComponents();
         this.listPdfFiles();
         this.lblSearchIcon.setIcon(new ImageIcon(icon));
-        System.out.println(System.getProperty("user.dir")+ "src/main/assets/search.png");
     }
     
     private void listPdfFiles() {
         String pdfsDir = System.getProperty("user.dir");
         File songsDirectory = new File(pdfsDir + "/pdfs");
         File[] pdfsSongs = songsDirectory.listFiles();
-        DefaultListModel defaultListModel = new DefaultListModel();
-        this.availableSongs.setModel(defaultListModel);
             
         for (File pdfSong : pdfsSongs) {
-            defaultListModel.addElement(pdfSong.getName());
+            this.availableSongsListModel.addElement(pdfSong.getName());
         }   
+    }
+    
+    private void setDefaultModelToListsComponents() {
+        this.availableSongsListModel = new DefaultListModel();
+        this.addedSongsListModel = new DefaultListModel();
+        this.availableSongs.setModel(availableSongsListModel);
+        this.addedSongs.setModel(addedSongsListModel);
     }
 
     /**
@@ -45,46 +54,38 @@ public class MainFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        lblAvailablePdfs = new javax.swing.JLabel();
+        lblAddedPdfs = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         availableSongs = new javax.swing.JList<>();
         jScrollPane2 = new javax.swing.JScrollPane();
         addedSongs = new javax.swing.JList<>();
         jTextField1 = new javax.swing.JTextField();
         lblSearchIcon = new javax.swing.JLabel();
+        lblArrowIcon = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("PDF Together");
 
-        jButton1.setText("Adicionar");
-        jButton1.setName("selectFileBnt"); // NOI18N
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+        lblAvailablePdfs.setText("PDFs Disponíveis");
+
+        lblAddedPdfs.setText("PDFs Adicionados");
+
+        availableSongs.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                availableSongsValueChanged(evt);
             }
         });
-
-        jLabel1.setText("Cânticos Disponívels");
-
-        jLabel2.setText("Cânticos Adicionados");
-
         jScrollPane1.setViewportView(availableSongs);
 
-        addedSongs.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+        addedSongs.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                addedSongsKeyPressed(evt);
+            }
         });
         jScrollPane2.setViewportView(addedSongs);
 
         jTextField1.setText("pesquisar");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
 
         lblSearchIcon.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -97,43 +98,45 @@ public class MainFrame extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGap(80, 80, 80)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTextField1)
+                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblSearchIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(lblSearchIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(32, 32, 32)
-                        .addComponent(jButton1)
-                        .addGap(54, 54, 54)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(69, Short.MAX_VALUE))
+                                .addComponent(lblArrowIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(12, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addComponent(lblAvailablePdfs)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblAddedPdfs)
+                        .addGap(57, 57, 57))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(85, 85, 85)
-                        .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(231, 231, 231)
+                        .addComponent(lblArrowIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(219, 219, 219)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(137, Short.MAX_VALUE))
+                        .addGap(85, 85, 85)
+                        .addComponent(lblAddedPdfs)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(102, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(67, 67, 67)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(lblAvailablePdfs)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -145,27 +148,38 @@ public class MainFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
-
     private void lblSearchIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSearchIconMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_lblSearchIconMouseClicked
 
+    private void addedSongsKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addedSongsKeyPressed
+        boolean deleteKeyPressed = evt.getKeyCode() == KeyEvent.VK_DELETE;
+        if (deleteKeyPressed) {
+            int selectedIndex = addedSongs.getSelectedIndex();
+            if (selectedIndex != -1) {
+                this.addedSongsListModel.remove(selectedIndex);
+            }
+        }
+        
+    }//GEN-LAST:event_addedSongsKeyPressed
+
+    private void availableSongsValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_availableSongsValueChanged
+        if (!evt.getValueIsAdjusting()) {
+            this.addedSongsListModel.addElement(
+                this.availableSongs.getSelectedValue()
+            );
+        }
+    }//GEN-LAST:event_availableSongsValueChanged
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JList<String> addedSongs;
     private javax.swing.JList<String> availableSongs;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel lblAddedPdfs;
+    private javax.swing.JLabel lblArrowIcon;
+    private javax.swing.JLabel lblAvailablePdfs;
     private javax.swing.JLabel lblSearchIcon;
     // End of variables declaration//GEN-END:variables
 }
