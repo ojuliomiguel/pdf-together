@@ -1,5 +1,6 @@
 package gui;
 
+import java.awt.Desktop;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
@@ -214,7 +215,8 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void bntMergePdfsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bntMergePdfsMouseClicked
         PDFMergerUtility PDFMerger = new PDFMergerUtility();
-        String PDFDestination = System.getProperty("user.dir") + "mergedPDF.pdf";
+        String appPath = System.getProperty("user.dir");
+        String PDFDestination = appPath + "-mergedPDF.pdf";
         PDFMerger.setDestinationFileName(PDFDestination);
         for (int i = 0; i < this.addedSongsListModel.getSize(); i++) {
             String pdfName = this.addedSongsListModel.getElementAt(i);
@@ -223,14 +225,18 @@ public class MainFrame extends javax.swing.JFrame {
                 PDFMerger.addSource(filePath);
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(null,ex.toString());
             }
         }
         
         try {
             PDFMerger.mergeDocuments();
             JOptionPane.showMessageDialog(null, "PDFs juntados com sucesso!");
+            File pdfDir = new File(appPath);
+            Desktop.getDesktop().open(pdfDir);
         } catch (IOException ex) {
             Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null,ex.toString());
         }
     }//GEN-LAST:event_bntMergePdfsMouseClicked
 
