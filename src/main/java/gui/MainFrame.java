@@ -201,9 +201,14 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void availableSongsValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_availableSongsValueChanged
         if (!evt.getValueIsAdjusting()) {
-            this.addedSongsListModel.addElement(
-                this.availableSongs.getSelectedValue()
-            );
+            Object selectedItem = this.availableSongs.getSelectedValue();
+            Boolean containsElement = this.addedSongsListModel
+                .contains(selectedItem);
+            
+            if (!containsElement) {
+                this.addedSongsListModel.addElement(selectedItem.toString());
+            }
+            
         }
     }//GEN-LAST:event_availableSongsValueChanged
 
