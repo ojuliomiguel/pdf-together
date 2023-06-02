@@ -68,23 +68,48 @@ public class MainFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        bg = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         lblAvailablePdfs = new javax.swing.JLabel();
-        lblAddedPdfs = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         availableSongs = new javax.swing.JList<>();
+        lblAddedPdfs = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         addedSongs = new javax.swing.JList<>();
-        jTextField1 = new javax.swing.JTextField();
-        lblSearchIcon = new javax.swing.JLabel();
-        lblArrowIcon = new javax.swing.JLabel();
         bntMergePdfs = new javax.swing.JButton();
+        lblSearchIcon = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("PDF Together");
 
-        lblAvailablePdfs.setText("PDFs Disponíveis");
+        bg.setBackground(new java.awt.Color(63, 72, 75));
 
-        lblAddedPdfs.setText("PDFs Adicionados");
+        jPanel1.setBackground(new java.awt.Color(49, 56, 59));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("/Users/juliomiguel/Documents/Me/pdf-together/src/main/java/assets/PDF Together.png")); // NOI18N
+        jLabel1.setText("jLabel1");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(182, 182, 182))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        lblAvailablePdfs.setFont(new java.awt.Font("Monospaced", 1, 16)); // NOI18N
+        lblAvailablePdfs.setForeground(new java.awt.Color(255, 255, 255));
+        lblAvailablePdfs.setText("PDFs DISPONÍVEIS");
 
         availableSongs.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
@@ -92,6 +117,10 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(availableSongs);
+
+        lblAddedPdfs.setFont(new java.awt.Font("Monospaced", 1, 16)); // NOI18N
+        lblAddedPdfs.setForeground(new java.awt.Color(255, 255, 255));
+        lblAddedPdfs.setText("PDFs ADICIONADOS");
 
         addedSongs.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -105,14 +134,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(addedSongs);
 
-        jTextField1.setText("pesquisar");
-
-        lblSearchIcon.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblSearchIconMouseClicked(evt);
-            }
-        });
-
+        bntMergePdfs.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         bntMergePdfs.setText("Juntar");
         bntMergePdfs.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -125,61 +147,82 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        lblSearchIcon.setText("ico");
+        lblSearchIcon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblSearchIconMouseClicked(evt);
+            }
+        });
+
+        jTextField1.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        jTextField1.setText("Pesquisar");
+        jTextField1.setBorder(null);
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout bgLayout = new javax.swing.GroupLayout(bg);
+        bg.setLayout(bgLayout);
+        bgLayout.setHorizontalGroup(
+            bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(bgLayout.createSequentialGroup()
+                .addGap(123, 123, 123)
+                .addComponent(lblAvailablePdfs)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblAddedPdfs)
+                .addGap(124, 124, 124))
+            .addGroup(bgLayout.createSequentialGroup()
+                .addGap(90, 90, 90)
+                .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(bgLayout.createSequentialGroup()
+                        .addComponent(jTextField1)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblSearchIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
+                .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bgLayout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(90, 90, 90))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bgLayout.createSequentialGroup()
+                        .addComponent(bntMergePdfs, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(154, 154, 154))))
+        );
+        bgLayout.setVerticalGroup(
+            bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(bgLayout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(bgLayout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addComponent(lblAvailablePdfs))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bgLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblAddedPdfs, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(bntMergePdfs, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblSearchIcon, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(37, 37, 37))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(83, 83, 83)
-                .addComponent(lblAvailablePdfs)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblAddedPdfs)
-                .addGap(133, 133, 133))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jTextField1)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblSearchIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(123, 123, 123)
-                        .addComponent(lblArrowIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(184, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(78, 78, 78))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(bntMergePdfs, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(142, 142, 142))))))
+            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblAddedPdfs)
-                    .addComponent(lblAvailablePdfs))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lblSearchIcon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(bntMergePdfs)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblArrowIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(bg, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -189,29 +232,13 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_lblSearchIconMouseClicked
 
-    private void addedSongsKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addedSongsKeyPressed
-        boolean deleteKeyPressed = evt.getKeyCode() == KeyEvent.VK_DELETE;
-        if (deleteKeyPressed) {
-            int selectedIndex = addedSongs.getSelectedIndex();
-            if (selectedIndex != -1) {
-                this.addedSongsListModel.remove(selectedIndex);
-            }
-        }
-        
-    }//GEN-LAST:event_addedSongsKeyPressed
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
-    private void availableSongsValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_availableSongsValueChanged
-        if (!evt.getValueIsAdjusting()) {
-            Object selectedItem = this.availableSongs.getSelectedValue();
-            Boolean containsElement = this.addedSongsListModel
-                .contains(selectedItem);
-            
-            if (!containsElement) {
-                this.addedSongsListModel.addElement(selectedItem.toString());
-            }
-            
-        }
-    }//GEN-LAST:event_availableSongsValueChanged
+    private void bntMergePdfsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntMergePdfsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bntMergePdfsActionPerformed
 
     private void bntMergePdfsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bntMergePdfsMouseClicked
         PDFMergerUtility PDFMerger = new PDFMergerUtility();
@@ -228,7 +255,7 @@ public class MainFrame extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null,ex.toString());
             }
         }
-        
+
         try {
             PDFMerger.mergeDocuments();
             JOptionPane.showMessageDialog(null, "PDFs juntados com sucesso!");
@@ -240,17 +267,36 @@ public class MainFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_bntMergePdfsMouseClicked
 
-    private void bntMergePdfsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntMergePdfsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bntMergePdfsActionPerformed
+    private void addedSongsKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addedSongsKeyPressed
+        boolean deleteKeyPressed = evt.getKeyCode() == KeyEvent.VK_DELETE;
+        if (deleteKeyPressed) {
+            int selectedIndex = addedSongs.getSelectedIndex();
+            if (selectedIndex != -1) {
+                this.addedSongsListModel.remove(selectedIndex);
+            }
+        }
+    }//GEN-LAST:event_addedSongsKeyPressed
 
     private void addedSongsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addedSongsMousePressed
         if (!SwingUtilities.isRightMouseButton(evt)) {
             return;
-        }  
-        
+        }
+
         this.showContextMenu(evt);
     }//GEN-LAST:event_addedSongsMousePressed
+
+    private void availableSongsValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_availableSongsValueChanged
+        if (!evt.getValueIsAdjusting()) {
+            Object selectedItem = this.availableSongs.getSelectedValue();
+            Boolean containsElement = this.addedSongsListModel
+            .contains(selectedItem);
+
+            if (!containsElement) {
+                this.addedSongsListModel.addElement(selectedItem.toString());
+            }
+
+        }
+    }//GEN-LAST:event_availableSongsValueChanged
     
     private void showContextMenu(MouseEvent e) {
         JPopupMenu popupMenu = new JPopupMenu();
@@ -267,12 +313,14 @@ public class MainFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JList<String> addedSongs;
     private javax.swing.JList<String> availableSongs;
+    private javax.swing.JPanel bg;
     private javax.swing.JButton bntMergePdfs;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblAddedPdfs;
-    private javax.swing.JLabel lblArrowIcon;
     private javax.swing.JLabel lblAvailablePdfs;
     private javax.swing.JLabel lblSearchIcon;
     // End of variables declaration//GEN-END:variables
