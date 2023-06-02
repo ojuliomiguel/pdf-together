@@ -1,5 +1,7 @@
 # PDF Together
 
+![homescreen](https://i.ibb.co/9YKCSCK/homescreen.png)
+
 The Java PDF Merger is a project aimed at providing a convenient and efficient way to merge multiple PDF files into a single document. This README file provides an overview of the project, its features, and instructions on how to use it.
 
 # Features
