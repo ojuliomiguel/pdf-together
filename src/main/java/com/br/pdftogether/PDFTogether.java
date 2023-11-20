@@ -1,6 +1,6 @@
 package com.br.pdftogether;
 
-import gui.MainFrame;
+import com.br.pdftogether.gui.MainFrame;
 
 /**
  *
