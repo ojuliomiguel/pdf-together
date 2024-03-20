@@ -24,20 +24,22 @@ public class MainFrame extends javax.swing.JFrame {
      
     private DefaultListModel<String> availableSongsListModel;
     private DefaultListModel<String> addedSongsListModel;
-    private File songsDirectory = new File(System.getProperty("user.dir") + "/pdfs");
+    private File pdfsDir;
    
     /**
      * Creates new form MainFrame
      */
-    public MainFrame() {
+    public MainFrame(File pdfsDir) {
+        this.pdfsDir = pdfsDir;
         initComponents();
         this.setDefaultModelToListsComponents();
+        setLocationRelativeTo(null);
         this.listPdfFiles();
         
     }
     
     private void listPdfFiles() {
-        File[] pdfsSongs = this.songsDirectory.listFiles();
+        File[] pdfsSongs = this.pdfsDir.listFiles();
             
         for (File pdfSong : pdfsSongs) {
             String fileName = pdfSong.getName();
@@ -235,7 +237,7 @@ public class MainFrame extends javax.swing.JFrame {
         PDFMerger.setDestinationFileName(PDFDestination);
         for (int i = 0; i < this.addedSongsListModel.getSize(); i++) {
             String pdfName = this.addedSongsListModel.getElementAt(i);
-            String filePath = this.songsDirectory + "/" + pdfName;
+            String filePath = this.pdfsDir + "/" + pdfName;
             try {
                 PDFMerger.addSource(filePath);
             } catch (FileNotFoundException ex) {
