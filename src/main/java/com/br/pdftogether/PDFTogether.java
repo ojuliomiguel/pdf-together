@@ -1,6 +1,6 @@
 package com.br.pdftogether;
 
-import com.br.pdftogether.gui.MainFrame;
+import com.br.pdftogether.gui.SelectPDFSFolderFrame;
 
 /**
  *
@@ -12,7 +12,7 @@ public class PDFTogether {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MainFrame().setVisible(true);
+                new SelectPDFSFolderFrame().setVisible(true);
             }
         });
     }
