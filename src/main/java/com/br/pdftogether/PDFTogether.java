@@ -10,11 +10,7 @@ public class PDFTogether {
 
     public static void main(String[] args) {
         try {
-            System.setProperty("apple.awt.application.appearance", "system");
-            System.setProperty("apple.laf.useScreenMenuBar", "true");
-            System.setProperty("sun.java2d.uiScale.enabled", "true");
-            System.setProperty("apple.awt.graphics.UseQuartz", "true");
-
+            configMacOSLookAndFeel();
             javax.swing.UIManager.setLookAndFeel(new com.formdev.flatlaf.FlatDarkLaf());
         } catch (Exception ex) {
             System.err.println("Failed to initialize LaF");
@@ -25,5 +21,12 @@ public class PDFTogether {
                 new SelectPDFSFolderFrame().setVisible(true);
             }
         });
+    }
+
+    private static void configMacOSLookAndFeel() {
+        System.setProperty("apple.awt.application.appearance", "system");
+        System.setProperty("apple.laf.useScreenMenuBar", "true");
+        System.setProperty("sun.java2d.uiScale.enabled", "true");
+        System.setProperty("apple.awt.graphics.UseQuartz", "true");
     }
 }
