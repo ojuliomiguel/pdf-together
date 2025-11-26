@@ -16,8 +16,9 @@ public class SelectPDFSFolderFrame extends javax.swing.JFrame {
      * Creates new form SelectPDFSFolderFrame
      */
     public SelectPDFSFolderFrame() {
-        setLocationRelativeTo(null);
         initComponents();
+        setSize(600, 400);
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -29,6 +30,7 @@ public class SelectPDFSFolderFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated
     // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         jPanel1 = new javax.swing.JPanel();
         chooseFileBnt = new javax.swing.JButton();
@@ -36,6 +38,8 @@ public class SelectPDFSFolderFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(63, 72, 75));
+
+        jPanel1.setLayout(new java.awt.GridBagLayout());
 
         chooseFileBnt.setText("Choose PDF Folder");
         chooseFileBnt.addActionListener(new java.awt.event.ActionListener() {
@@ -45,39 +49,32 @@ public class SelectPDFSFolderFrame extends javax.swing.JFrame {
         });
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/PDF-Together.png"))); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 30, 0);
+        jPanel1.add(jLabel3, gridBagConstraints);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(111, 111, 111)
-                                .addComponent(chooseFileBnt, javax.swing.GroupLayout.PREFERRED_SIZE, 158,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
-        jPanel1Layout.setVerticalGroup(
-                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(38, 38, 38)
-                                .addComponent(chooseFileBnt, javax.swing.GroupLayout.PREFERRED_SIZE, 64,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(49, Short.MAX_VALUE)));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.ipadx = 20;
+        gridBagConstraints.ipady = 30;
+        jPanel1.add(chooseFileBnt, gridBagConstraints);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 382, Short.MAX_VALUE));
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
         layout.setVerticalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 233, Short.MAX_VALUE));
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }
 
     private void chooseFileBntActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_chooseFileBntActionPerformed
         JFileChooser chooser = new JFileChooser();
